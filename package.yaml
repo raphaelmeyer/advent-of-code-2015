@@ -1,0 +1,30 @@
+name: advent-of-code
+version: 0.0.0.1
+license: MIT
+
+ghc-options:
+  - -Wall
+  - -Werror
+
+dependencies:
+  - base
+
+executables:
+  day-01-exe:
+    main: Main.hs
+    source-dirs: app/Day01
+    dependencies:
+      - advent-of-code
+
+library:
+  # exposed-modules: Floor
+  source-dirs: src
+
+tests:
+  test:
+    main: Spec.hs
+    source-dirs: test
+    dependencies:
+      - advent-of-code
+      - hspec
+      - hspec-discover
