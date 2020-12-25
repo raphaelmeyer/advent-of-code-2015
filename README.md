@@ -4,12 +4,19 @@
 
 ## Getting Started
 
+Run all tests
+
     stack test
+
+Run an executable
+
+    stack build
+    stack exec day-01-exe
 
 ## Development Environment
 
 For live feedback install _ghcid_ with `stack install ghcid` and start
-`ghcid` in a terminal.
+`ghcid` in a terminal. Or `stack exec ghcid`.
 
 ### VS Code Setup
 

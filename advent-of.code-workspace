@@ -6,12 +6,10 @@
   ],
   "extensions": {
     "recommendations": [
-      "dramforever.vscode-ghc-simple",
       "haskell.haskell",
       "hoovercj.haskell-linter",
       "jcanero.hoogle-vscode",
-      "justusadam.language-haskell",
-      "maxgabriel.brittany"
+      "justusadam.language-haskell"
     ]
   },
   "settings": {

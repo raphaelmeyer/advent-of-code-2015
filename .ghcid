@@ -1,1 +1,1 @@
---command "stack ghci dojo-haskell:lib dojo-haskell:test" --restart "package.yaml" --test "main"
+--command "stack ghci advent-of-code:lib advent-of-code:test" --restart "package.yaml" --test "main"
