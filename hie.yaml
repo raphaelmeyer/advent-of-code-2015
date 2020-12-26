@@ -1,0 +1,8 @@
+cradle:
+  stack:
+    - path: "./app/Day01/"
+      component: "advent-of-code:exe:day-01-exe"
+    - path: "./src/"
+      component: "advent-of-code:lib"
+    - path: "./test/"
+      component: "advent-of-code:test:test"

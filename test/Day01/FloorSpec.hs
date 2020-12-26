@@ -1,7 +1,7 @@
 module Day01.FloorSpec where
 
-import           Test.Hspec
-import           Day01.Floor
+import Day01.Floor
+import Test.Hspec
 
 spec :: Spec
 spec = do
@@ -34,4 +34,3 @@ spec = do
 
     it "()(()())( never enter the basement" $ do
       enterBasement "()(()())(" `shouldBe` Nothing
-

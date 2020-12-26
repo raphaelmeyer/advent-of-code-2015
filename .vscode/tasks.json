@@ -1,0 +1,44 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "shell",
+      "label": "Build",
+      "problemMatcher": [],
+      "command": "stack build",
+      "group": {
+        "kind": "build",
+        "isDefault": true,
+      }
+    },
+    {
+      "label": "Run executable",
+      "type": "shell",
+      "problemMatcher": [],
+      "command": "stack",
+      "args": [
+        "run",
+        "${input:exename}"
+      ],
+      "group": "build"
+    },
+    {
+      "label": "Run tests",
+      "type": "shell",
+      "problemMatcher": [],
+      "command": "stack test",
+      "group": "test"
+    }
+  ],
+  "inputs": [
+    {
+      "id": "exename",
+      "description": "executable name",
+      "type": "pickString",
+      "options": [
+        "day-01-exe",
+        "day-02-exe"
+      ]
+    }
+  ]
+}

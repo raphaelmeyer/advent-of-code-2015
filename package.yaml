@@ -17,13 +17,17 @@ executables:
       - advent-of-code
 
 library:
-  # exposed-modules: Floor
   source-dirs: src
+  dependencies:
+    - text
 
 tests:
   test:
     main: Spec.hs
     source-dirs: test
+    when:
+      - condition: false
+        other-modules: Paths_advent_of_code
     dependencies:
       - advent-of-code
       - hspec

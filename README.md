@@ -10,19 +10,14 @@ Run all tests
 
 Run an executable
 
-    stack build
-    stack exec day-01-exe
+    stack run day-01-exe
 
 ## Development Environment
 
 For live feedback install _ghcid_ with `stack install ghcid` and start
-`ghcid` in a terminal. Or `stack exec ghcid`.
+`stack exec ghcid` in a terminal.
 
 ### VS Code Setup
-
-Install the required tools.
-
-    stack install hlint brittany hspec-discover
 
 Open the VS Code workspace in `advent-of.code-workspace`.
 Then install the recommended plugins.

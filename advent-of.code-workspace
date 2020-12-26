@@ -6,15 +6,14 @@
   ],
   "extensions": {
     "recommendations": [
-      "haskell.haskell",
-      "hoovercj.haskell-linter",
-      "jcanero.hoogle-vscode",
-      "justusadam.language-haskell"
+      "haskell.haskell"
     ]
   },
   "settings": {
     "editor.renderWhitespace": "boundary",
     "editor.tabSize": 2,
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "haskell.formattingProvider": "ormolu",
+    "haskell.hlintOn": true
   }
 }
