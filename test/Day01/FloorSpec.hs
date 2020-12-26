@@ -1,3 +1,5 @@
+{-# LANGUAGE OverloadedStrings #-}
+
 module Day01.FloorSpec where
 
 import Day01.Floor

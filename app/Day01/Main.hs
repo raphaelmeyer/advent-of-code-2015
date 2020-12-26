@@ -1,13 +1,12 @@
 module Main where
 
-import Day01.Floor
+import qualified Day01.Floor as Floor
 
 main :: IO ()
 main = do
-  f <- readFile "data/day-01.txt"
-  let description = head (lines f)
-  let lastFloor = whatFloor description
-  let steps = enterBasement description
+  description <- Floor.parseInput
+  let lastFloor = Floor.whatFloor description
+  let steps = Floor.enterBasement description
 
   putStrLn "# Day 01 #"
   putStrLn $ "Part I : " ++ show lastFloor

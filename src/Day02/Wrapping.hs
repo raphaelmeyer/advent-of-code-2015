@@ -11,6 +11,7 @@ module Day02.Wrapping
   )
 where
 
+import Data.Functor ((<&>))
 import Data.List (sort)
 import Data.Maybe (mapMaybe)
 import qualified Data.Text as Text
@@ -19,10 +20,7 @@ import qualified Data.Text.Read as Read (decimal)
 data Box = Box Int Int Int deriving (Show, Eq)
 
 parseInput :: IO [Box]
-parseInput = do
-  f <- readFile "data/day-02.txt"
-  let x = Text.lines . Text.pack $ f
-  return (mapMaybe parsePresent x)
+parseInput = readFile "data/day-02.txt" <&> mapMaybe parsePresent . Text.lines . Text.pack
 
 parsePresent :: Text.Text -> Maybe Box
 parsePresent input = case dimensions of
