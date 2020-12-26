@@ -4,6 +4,8 @@ cradle:
       component: "advent-of-code:exe:day-01-exe"
     - path: "./app/Day02/"
       component: "advent-of-code:exe:day-02-exe"
+    - path: "./app/Day03/"
+      component: "advent-of-code:exe:day-03-exe"
     - path: "./src/"
       component: "advent-of-code:lib"
     - path: "./test/"

@@ -37,7 +37,8 @@
       "type": "pickString",
       "options": [
         "day-01-exe",
-        "day-02-exe"
+        "day-02-exe",
+        "day-03-exe"
       ]
     }
   ]
