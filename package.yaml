@@ -5,6 +5,7 @@ license: MIT
 ghc-options:
   - -Wall
   - -Werror
+  - -O2
 
 dependencies:
   - base
@@ -25,12 +26,20 @@ executables:
     source-dirs: app/Day03
     dependencies:
       - advent-of-code
+  day-04-exe:
+    main: Main.hs
+    source-dirs: app/Day04
+    dependencies:
+      - advent-of-code
 
 library:
   source-dirs: src
   dependencies:
-    - text
+    - bytestring
+    - bytestring-conversion
     - containers
+    - cryptohash-md5
+    - text
 
 tests:
   test:
