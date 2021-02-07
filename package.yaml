@@ -31,6 +31,11 @@ executables:
     source-dirs: app/Day04
     dependencies:
       - advent-of-code
+  day-05-exe:
+    main: Main.hs
+    source-dirs: app/Day05
+    dependencies:
+      - advent-of-code
 
 library:
   source-dirs: src
