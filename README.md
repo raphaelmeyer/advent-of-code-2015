@@ -8,9 +8,13 @@ Run all tests
 
     stack test
 
-Run an executable
+Run all solutions
 
-    stack run day-01-exe
+    haskell$ stack run aoc
+
+Run solution for a specific day
+
+    haskell$ stack run aoc -- --day DAY
 
 ## Development Environment
 

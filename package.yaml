@@ -1,5 +1,6 @@
 name: advent-of-code
 version: 0.1.0.0
+github: "raphaelmeyer/advent-of-code-2015"
 license: MIT
 
 ghc-options:
@@ -9,40 +10,22 @@ ghc-options:
 
 dependencies:
   - base
+  - containers
+  - text
 
 executables:
-  day-01-exe:
+  aoc:
     main: Main.hs
-    source-dirs: app/Day01
+    source-dirs: app/AoC
     dependencies:
       - advent-of-code
-  day-02-exe:
-    main: Main.hs
-    source-dirs: app/Day02
-    dependencies:
-      - advent-of-code
-  day-03-exe:
-    main: Main.hs
-    source-dirs: app/Day03
-    dependencies:
-      - advent-of-code
-  day-04-exe:
-    main: Main.hs
-    source-dirs: app/Day04
-    dependencies:
-      - advent-of-code
-  day-05-exe:
-    main: Main.hs
-    source-dirs: app/Day05
-    dependencies:
-      - advent-of-code
+      - optparse-applicative
 
 library:
   source-dirs: src
   dependencies:
     - bytestring
     - bytestring-conversion
-    - containers
     - cryptohash-md5
     - text
 
@@ -57,4 +40,3 @@ tests:
       - advent-of-code
       - hspec
       - hspec-discover
-      - containers

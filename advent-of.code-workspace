@@ -13,7 +13,8 @@
     "editor.renderWhitespace": "boundary",
     "editor.tabSize": 2,
     "editor.formatOnSave": true,
+    "editor.insertSpaces": true,
     "haskell.formattingProvider": "ormolu",
-    "haskell.hlintOn": true
+    "terminal.integrated.enablePersistentSessions": false
   }
 }
