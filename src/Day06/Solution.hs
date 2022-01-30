@@ -10,8 +10,10 @@ run = do
   let setup = Lights.setup instructions
   let on = Lights.count setup
 
+  let brightness = Lights.calculateBrightness setup
+
   putStrLn ""
   putStrLn "# Day 06 #"
   putStrLn ""
   putStrLn $ "Part I : " ++ show on
-  putStrLn $ "Part II : " ++ show (0 :: Int)
+  putStrLn $ "Part II : " ++ show brightness

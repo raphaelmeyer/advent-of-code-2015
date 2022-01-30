@@ -44,18 +44,10 @@ setup instructions = foldr splitSections [] xSegments
       where
         makeSection (y1, y2) = Section {getArea = Range (x1, y1) (x2, y2), getActions = actions}
           where
-            actions = foldl contains' [] instructions
-            contains' actions' Instruction {getRange = Range (xa, ya) (xb, yb), getAction = action}
+            actions = foldr contains' [] instructions
+            contains' Instruction {getRange = Range (xa, ya) (xb, yb), getAction = action} actions'
               | xa <= x1 && x2 <= xb && ya <= y1 && y2 <= yb = action : actions'
               | otherwise = actions'
-
-count :: Setup -> Int
-count = foldl count' 0
-  where
-    count' lights Section {getArea = area, getActions = actions}
-      | state actions == On = lights + rangeArea area
-      | otherwise = lights
-    rangeArea (Range (x1, y1) (x2, y2)) = (x2 - x1) * (y2 - y1)
 
 getXSegments :: Instructions -> [Segment]
 getXSegments instructions = zip (init xs) (tail xs)
@@ -71,6 +63,16 @@ getYSegments (xa, xb) instructions = if null ys then [] else zip (init ys) (tail
       | x1 <= xa && xb <= x2 = y1 : y2 : ys'
       | otherwise = ys'
 
+-- part 1
+
+count :: Setup -> Int
+count = foldl count' 0
+  where
+    count' lights Section {getArea = area, getActions = actions}
+      | (state . reverse) actions == On = lights + rangeArea area
+      | otherwise = lights
+    rangeArea (Range (x1, y1) (x2, y2)) = (x2 - x1) * (y2 - y1)
+
 state :: [Action] -> Action
 state (Toggle : actions) = invert . state $ actions
 state (On : _) = On
@@ -81,6 +83,22 @@ invert :: Action -> Action
 invert On = Off
 invert Off = On
 invert _ = undefined
+
+-- part 2
+
+calculateBrightness :: Setup -> Int
+calculateBrightness = foldl calculate 0
+  where
+    calculate brightness' Section {getArea = area, getActions = actions} = brightness' + rangeArea area * brightness actions
+    rangeArea (Range (x1, y1) (x2, y2)) = (x2 - x1) * (y2 - y1)
+
+brightness :: [Action] -> Int
+brightness = foldl adjust 0
+  where
+    adjust 0 Off = 0
+    adjust b Off = b - 1
+    adjust b On = b + 1
+    adjust b Toggle = b + 2
 
 -- parse input
 

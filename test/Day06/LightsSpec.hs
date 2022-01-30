@@ -76,8 +76,8 @@ spec = do
       length setup `shouldBe` 22
 
       setup `shouldContain` [Lights.Section {Lights.getArea = Lights.Range (7, 21) (9, 25), Lights.getActions = [Lights.On]}]
-      setup `shouldContain` [Lights.Section {Lights.getArea = Lights.Range (10, 25) (11, 27), Lights.getActions = [Lights.Off, Lights.On]}]
-      setup `shouldContain` [Lights.Section {Lights.getArea = Lights.Range (10, 27) (11, 28), Lights.getActions = [Lights.Off, Lights.Toggle, Lights.On]}]
+      setup `shouldContain` [Lights.Section {Lights.getArea = Lights.Range (10, 25) (11, 27), Lights.getActions = [Lights.On, Lights.Off]}]
+      setup `shouldContain` [Lights.Section {Lights.getArea = Lights.Range (10, 27) (11, 28), Lights.getActions = [Lights.On, Lights.Toggle, Lights.Off]}]
 
   describe "evaluate state of lights" $ do
     it "is on when the top action is On" $ do
@@ -104,3 +104,23 @@ spec = do
 
     it "is off when no action is define" $ do
       Lights.state [] `shouldBe` Lights.Off
+
+  describe "calculate brightness of lights" $ do
+    it "is starts with 0" $ do
+      Lights.brightness [] `shouldBe` 0
+
+    it "increases by 1 for On" $ do
+      Lights.brightness [Lights.On] `shouldBe` 1
+      Lights.brightness [Lights.On, Lights.On] `shouldBe` 2
+
+    it "increases by 2 for Toggle" $ do
+      Lights.brightness [Lights.Toggle] `shouldBe` 2
+      Lights.brightness [Lights.Toggle, Lights.Toggle] `shouldBe` 4
+
+    it "decreases by 1 for Off" $ do
+      Lights.brightness [Lights.On, Lights.Off] `shouldBe` 0
+      Lights.brightness [Lights.On, Lights.Toggle, Lights.Off] `shouldBe` 2
+
+    it "can't decrease below zero" $ do
+      Lights.brightness [Lights.Off] `shouldBe` 0
+      Lights.brightness [Lights.On, Lights.Off, Lights.Off] `shouldBe` 0
