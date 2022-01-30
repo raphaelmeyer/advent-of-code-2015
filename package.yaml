@@ -27,6 +27,7 @@ library:
     - bytestring
     - bytestring-conversion
     - cryptohash-md5
+    - megaparsec
     - text
 
 tests:

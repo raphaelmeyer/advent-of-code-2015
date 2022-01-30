@@ -8,6 +8,7 @@ import qualified Day02.Solution as Day02
 import qualified Day03.Solution as Day03
 import qualified Day04.Solution as Day04
 import qualified Day05.Solution as Day05
+import qualified Day06.Solution as Day06
 import qualified Options.Applicative as Opt
 
 data Options = Options {getDay :: Maybe Int} deriving (Show)
@@ -22,7 +23,8 @@ solutions =
       (2, Day02.run),
       (3, Day03.run),
       (4, Day04.run),
-      (5, Day05.run)
+      (5, Day05.run),
+      (6, Day06.run)
     ]
 
 main :: IO ()
