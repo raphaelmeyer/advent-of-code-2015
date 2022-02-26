@@ -10,11 +10,11 @@ Run all tests
 
 Run all solutions
 
-    haskell$ stack run aoc
+    stack run aoc
 
 Run solution for a specific day
 
-    haskell$ stack run aoc -- --day DAY
+    stack run aoc -- --day DAY
 
 ## Development Environment
 
