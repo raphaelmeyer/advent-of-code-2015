@@ -11,6 +11,9 @@ readInput filename = readFile filename <&> Text.lines . Text.pack
 diffCodeMemory :: [Text.Text] -> Int
 diffCodeMemory input = (sum . map charsOfCode) input - (sum . map charsInMemory) input
 
+diffEncodedCode :: [Text.Text] -> Int
+diffEncodedCode input = (sum . map charsEncodedCode) input - (sum . map charsOfCode) input
+
 charsOfCode :: Text.Text -> Int
 charsOfCode = Text.length
 
@@ -25,3 +28,10 @@ charsInMemory = fst . Text.foldl fold' (0, Any) . Text.tail . Text.init
     fold' (count, Any) '\\' = (count, Escaped)
     fold' (count, Any) _ = (count + 1, Any)
     fold' _ _ = undefined
+
+charsEncodedCode :: Text.Text -> Int
+charsEncodedCode = Text.foldl fold' 2
+  where
+    fold' count '\\' = count + 2
+    fold' count '\"' = count + 2
+    fold' count _ = count + 1

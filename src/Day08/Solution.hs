@@ -9,9 +9,10 @@ run = do
   input <- Matchsticks.readInput "data/day-08.txt"
 
   let diff = Matchsticks.diffCodeMemory input
+  let diff' = Matchsticks.diffEncodedCode input
 
   putStrLn ""
   putStrLn "# Day 08 #"
   putStrLn ""
   putStrLn $ "Part I : " ++ show diff
-  putStrLn $ "Part II : " ++ show (0 :: Int)
+  putStrLn $ "Part II : " ++ show diff'

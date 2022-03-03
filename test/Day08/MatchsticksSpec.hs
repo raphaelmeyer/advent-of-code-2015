@@ -20,6 +20,10 @@ spec = do
     it "calculates the difference" $ do
       Matchsticks.diffCodeMemory exampleInput `shouldBe` 12
 
+  describe "difference of characters of code and encoded code" $ do
+    it "calculates the difference" $ do
+      Matchsticks.diffEncodedCode exampleInput `shouldBe` 19
+
   describe "count characters of code" $ do
     it "counts number of characters of code in a single line" $ do
       Matchsticks.charsOfCode "\"\"" `shouldBe` 2
@@ -33,3 +37,10 @@ spec = do
       Matchsticks.charsInMemory "\"abc\"" `shouldBe` 3
       Matchsticks.charsInMemory "\"aaa\\\"aaa\"" `shouldBe` 7
       Matchsticks.charsInMemory "\"\\x27\"" `shouldBe` 1
+
+  describe "count characters of encoded code" $ do
+    it "counts number of characters of ecnoded code in a single line" $ do
+      Matchsticks.charsEncodedCode "\"\"" `shouldBe` 6
+      Matchsticks.charsEncodedCode "\"abc\"" `shouldBe` 9
+      Matchsticks.charsEncodedCode "\"aaa\\\"aaa\"" `shouldBe` 16
+      Matchsticks.charsEncodedCode "\"\\x27\"" `shouldBe` 11
