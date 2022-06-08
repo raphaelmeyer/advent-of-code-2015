@@ -26,3 +26,10 @@ Then install the recommended plugins.
 Set default options when running `cabal test`
 
     cabal configure --enable-tests --test-show-details=streaming --test-option=--color
+
+### ghcid
+
+Install `ghcid` with `cabal install ghcid`.
+Start ghcid in a terminal.
+
+    cabal exec ghcid -- --command='cabal repl test:test'

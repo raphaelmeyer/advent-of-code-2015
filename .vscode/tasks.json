@@ -5,7 +5,7 @@
       "type": "shell",
       "label": "Build",
       "problemMatcher": [],
-      "command": "stack build",
+      "command": "cabal build",
       "group": {
         "kind": "build",
         "isDefault": true,
@@ -15,9 +15,12 @@
       "label": "Run executable",
       "type": "shell",
       "problemMatcher": [],
-      "command": "stack",
+      "command": "cabal",
       "args": [
         "run",
+        "aoc",
+        "--",
+        "--day",
         "${input:exename}"
       ],
       "group": "build"
@@ -26,7 +29,7 @@
       "label": "Run tests",
       "type": "shell",
       "problemMatcher": [],
-      "command": "stack test",
+      "command": "cabal test",
       "group": "test"
     }
   ],
@@ -36,9 +39,14 @@
       "description": "executable name",
       "type": "pickString",
       "options": [
-        "day-01-exe",
-        "day-02-exe",
-        "day-03-exe"
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8"
       ]
     }
   ]
