@@ -1,0 +1,78 @@
+cabal-version:      2.4
+name:               advent-of-code
+version:            0.1.0.0
+
+license:        MIT
+license-file:   LICENSE
+
+
+executable aoc
+  main-is: Main.hs
+  hs-source-dirs:
+      app/AoC
+  ghc-options: -Wall -Werror -O2
+  build-depends:
+      advent-of-code
+    , base
+    , containers
+    , optparse-applicative
+    , text
+  default-language: Haskell2010
+
+
+library
+  exposed-modules:
+      Day01.Floor
+      Day01.Solution
+      Day02.Solution
+      Day02.Wrapping
+      Day03.Delivery
+      Day03.Solution
+      Day04.AdventCoin
+      Day04.Solution
+      Day05.NiceString
+      Day05.Solution
+      Day06.Lights
+      Day06.Solution
+      Day07.Circuits
+      Day07.Solution
+      Day08.Matchsticks
+      Day08.Solution
+  hs-source-dirs:
+      src
+  ghc-options: -Wall -Werror -O2
+  build-depends:
+      base
+    , bytestring
+    , bytestring-conversion
+    , containers
+    , cryptohash-md5
+    , megaparsec
+    , text
+  default-language: Haskell2010
+
+
+test-suite test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Day01.FloorSpec
+      Day02.WrappingSpec
+      Day03.DeliverySpec
+      Day04.AdventCoinSpec
+      Day05.NiceStringSpec
+      Day06.LightsSpec
+      Day07.CircuitsSpec
+      Day08.MatchsticksSpec
+  hs-source-dirs:
+      test
+  ghc-options: -Wall -Werror -O2
+  build-depends:
+      advent-of-code
+    , base
+    , containers
+    , hspec
+    , text
+  build-tool-depends:
+      hspec-discover:hspec-discover
+  default-language: Haskell2010
